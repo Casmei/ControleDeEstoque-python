@@ -40,7 +40,7 @@ def criar_produto() -> None:
   movel = str(input("Digite o nome do movel: "))
   codigo = int(input(f"Digite o código do movel {movel}: "))
   cor = str(input(f"Digite a cor do movel {movel}: "))
-  quantidade = int(input(f"Digite a quantidade do {movel}: "))
+  quantidade = int(input(f"Digite a quantidade do movel {movel}: "))
   
   produto = Produto(movel, codigo, cor, quantidade)
   cadastrar_produto_na_lista(produto)
@@ -49,9 +49,10 @@ def cadastrar_produto_na_lista(produto):
   lista.inserir_elemento_na_lista(produto)
   print("Cadastro concluído!")
   continuar_cadastro = str(input("Deseja cadastrar outro produto?(s/n) "))
-  if continuar_cadastro.lower == "s":
+
+  if continuar_cadastro == "s":
     criar_produto()
-  elif continuar_cadastro.lower == "n":
+  elif continuar_cadastro == "n":
     print("Obrigado!")
     main()
   else:
