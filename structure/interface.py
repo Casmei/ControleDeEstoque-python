@@ -70,3 +70,4 @@ def listar_vendas():
 
 
 main()
+# tiago otario
