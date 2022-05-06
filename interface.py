@@ -1,8 +1,9 @@
 from util import MenuManager, StaticList
 from main import Estoque, Produto
 from models import ProductList, Entrada
-from InquirerPy import inquirer
-from InquirerPy.validator import NumberValidator
+
+# from InquirerPy import inquirer
+# from InquirerPy.validator import NumberValidator
 
 
 from rich.console import Console
@@ -13,7 +14,7 @@ estoque = Estoque()
 
 print = Console().print
 
-######### PRODUTOS #########
+# * ######### PRODUTOS #########
 def criar_produtos():
     """
     Criar novos produtos, e
@@ -26,6 +27,8 @@ def criar_produtos():
         continuar = input("Deseja adicionar outro: (s/n) ")
         produto = Produto(nome)
         estoque.cadastrar_produto(produto)
+        print()
+        print("Produto Cadastrado com Sucesso!")
         flag = continuar == "s"
 
 
@@ -87,7 +90,7 @@ def produto_pelo_id():
 
 ###########################
 
-######## ENTRADAS #########
+# * ####### ENTRADAS #########
 def criar_entrada():
     nf = input("Qual a nota fiscal da entrada: ")
     produtos = StaticList(0)
@@ -128,7 +131,8 @@ def listar_entrada():
         print(table)
 
 
-# # Precisar pegar minha lista de produtos
+def entrada_pela_nf():
+    ...
 
 
 ############ MENU ############

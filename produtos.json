@@ -37,15 +37,19 @@
             "name": "costela de porco"
         },
         {
-            "id": "9efc1bba-54c4-415c-adca-0f838e407592",
-            "name": "caderno"
+            "id": "559d9d17-0d7e-4474-8eeb-2eea67e3ff5a",
+            "name": "framboesa"
+        },
+        {
+            "id": "a3730d1a-94e6-4788-a8eb-1a619469ce18",
+            "name": "feijão"
         }
     ],
     "entradas": [
         {
-            "id": "ea0f1c06-34fc-4eb3-86e1-b009a7962351",
+            "id": "06670252-0458-4cfb-ab53-99ce2b3f2c90",
             "nf": "24123",
-            "createdAt": "2022-05-04T14:43:07.699566",
+            "createdAt": "2022-05-06T13:05:35.038108",
             "produtos": [
                 {
                     "produto": {
@@ -78,9 +82,9 @@
             ]
         },
         {
-            "id": "872e55ac-3ae5-4e12-96d6-80124659e27c",
+            "id": "12c176ac-e442-401e-8d6f-57e1d3743384",
             "nf": "423432",
-            "createdAt": "2022-05-04T14:48:31.041662",
+            "createdAt": "2022-05-06T13:05:35.038108",
             "produtos": [
                 {
                     "produto": {
@@ -102,6 +106,27 @@
                         "name": "batata"
                     },
                     "quantidade": 70
+                }
+            ]
+        },
+        {
+            "id": "0590586e-6ee4-4339-93e3-bf168dc74462",
+            "nf": "5566",
+            "createdAt": "2022-05-06T13:05:35.038108",
+            "produtos": [
+                {
+                    "produto": {
+                        "id": "dd8b8fde-dbd3-4198-b918-8ec76e3e7162",
+                        "name": "arroz"
+                    },
+                    "quantidade": 60
+                },
+                {
+                    "produto": {
+                        "id": "6b8f9c61-c5a6-442c-b67d-71c6b6674f8c",
+                        "name": "banana"
+                    },
+                    "quantidade": 12
                 }
             ]
         }

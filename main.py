@@ -7,22 +7,35 @@ db = JSONDatabase("produtos.json")
 
 class Estoque:
     def __init__(self):
+        """
+        Vai ler os dados no banco de dados,
+        e armazenar nas variáveis
+        """
         read = db.read()
-
         produtos = read.get("produtos", None)
         entradas = read.get("entradas", None)
 
-        self.produtos = StaticList(0)
-        self.entradas = StaticList(0)
+        # TODO ainda falta fazer a saída
         self.saidas = StaticList(0)
 
+        """
+        Com os dados armazenados nas variáveis,
+        vamos passar para a StaticList
+        """
+        # Se existir produtos no Bd
         if produtos:
+            # Crio uma lista para armazenar os produtos
             self.produtos = StaticList(len(produtos))
+            # Para cada produto na lista
             for i in produtos:
+                # Transforma o produto json paraa a classe Produto
                 self.produtos = self.produtos.add(Produto.from_dict(i["id"], i["name"]))
 
+        # Se existir Entradas no Bd
         if entradas:
+            # Crio uma lista para armazenar as entradas
             self.entradas = StaticList(len(entradas))
+            # Para cada entrada na lista
             for i in entradas:
                 produtos = [
                     (
@@ -83,8 +96,6 @@ class Estoque:
         return "Item removido!"
 
     # * ################## LÓGICA DAS ENTRADAS ##################
-
-    # TODO ADICIONAR ENTRADA
     def cadastrar_entrada(self, entrada: Entrada):
         """
         Vai criar uma nova entrada, e adicionar a lista
@@ -93,13 +104,19 @@ class Estoque:
         # adiciona o produto ao Json
         db.write(self.to_dict())
 
-    # TODO RETORNAR TODAS AS ENTRADAS
-    def get_all(self):
-        ...
+    # TODO RETORNAR ENTRADA PELO UF
+    def retorna_entrada(self, nf):
+        if int(nf):
 
-    # TODO RETORNAR ENTRADA PELO ID
-    def get_by_id(self, id):
-        ...
+            def find(nf):
+                return produto.id == nome
+
+        else:
+
+            def find(produto):
+                return produto.name == nome
+
+        return self.produtos.find(find)
 
     #################### SAIDAS ####################
     # TODO DECREMENTAR QUANTIDADE DO ITEM
