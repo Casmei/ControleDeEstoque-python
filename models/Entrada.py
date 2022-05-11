@@ -15,10 +15,6 @@ class Entrada:
         self.createdAt = datetime.now()
         self.lista_produto = lista_produto
 
-    @classmethod
-    def from_dict(cls, nf, lista_produto: list[ListaProduto]):
-        return cls(nf, lista_produto)
-
     def to_dict(self):
         return {
             "id": self.id,

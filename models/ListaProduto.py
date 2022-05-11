@@ -4,8 +4,8 @@ from util import StaticList
 
 
 class ListaProduto:
-    def __init__(self, a: list[Tuple[Produto, int]]):
-        self.produtos_list = StaticList(len(a), a)
+    def __init__(self, a: StaticList):
+        self.produtos_list = a
 
     def to_dict(self):
         return [

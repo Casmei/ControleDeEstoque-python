@@ -12,10 +12,6 @@ class Produto:
         """
         return {"id": self.id, "name": self.name}
 
-    @classmethod
-    def from_dict(cls, id, name):
-        return cls(name, id)
-
     def __str__(self):
         return f"Produtos(id={self.id}, nome={self.name})"
 
