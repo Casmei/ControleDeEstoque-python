@@ -19,9 +19,6 @@ class Estoque:
         entradas = read.get("entradas", None)
         saidas = read.get("saidas", None)
 
-        """
-        Caso não tenha essas classes
-        """
         self.produtos = StaticList(0)
         self.entradas = StaticList(0)
         self.saidas = StaticList(0)
@@ -32,36 +29,47 @@ class Estoque:
         """
         # Se existir produtos no Bd
         if produtos:
-            for i in produtos:
+            for produto in produtos:
+                produto_nome = produto["name"]
+                produto_id = produto["id"]
+
                 # Transforma o produto json para a classe Produto
-                self.produtos = self.produtos.add(Produto.from_dict(i["id"], i["name"]))
+                self.produtos = self.produtos.add(Produto(produto_nome, produto_id))
 
         # Se existir Entradas no Bd
         if entradas:
-            for i in entradas:
-                produtos = [
-                    (
-                        Produto.from_dict(i["produto"]["id"], i["produto"]["name"]),
-                        i["quantidade"],
+            for entrada in entradas:
+                produtos = StaticList(0)
+
+                for produto in entrada["produtos"]:
+                    produto_nome = produto["produto"]["name"]
+                    produto_id = produto["produto"]["id"]
+                    quantidade = produto["quantidade"]
+
+                    produtos = produtos.add(
+                        (Produto(produto_nome, produto_id), quantidade)
                     )
-                    for i in i["produtos"]
-                ]
+
                 self.entradas = self.entradas.add(
-                    Entrada.from_dict(i["nf"], ListaProduto(produtos))
+                    Entrada(entrada["nf"], ListaProduto(produtos))
                 )
 
         if saidas:
-            for i in saidas:
-                produtos = [
-                    (
-                        Produto.from_dict(i["produto"]["id"], i["produto"]["name"]),
-                        i["quantidade"],
+            for saida in saidas:
+                produtos = StaticList(0)
+
+                for produto in saida["produtos"]:
+                    produto_nome = produto["produto"]["name"]
+                    produto_id = produto["produto"]["id"]
+                    quantidade = produto["quantidade"]
+
+                    produtos = produtos.add(
+                        (Produto(produto_nome, produto_id), quantidade)
                     )
-                    for i in i["produtos"]
-                ]
-                self.saidas = self.saidas.add(
-                    Saida.from_dict(i["nf"], ListaProduto(produtos))
-                )
+
+                    self.saidas = self.saidas.add(
+                        Saida(saida["nf"], ListaProduto(produtos))
+                    )
 
     def to_dict(self):
         """
@@ -127,13 +135,12 @@ class Estoque:
         """
         Vai criar uma nova saida, e adicionar a lista
         """
-        self.saida = self.saidas.add(saida)
+        self.saidas = self.saidas.add(saida)
         # adiciona o produto ao Json
         db.write(self.to_dict())
-        ...
 
-    def get_all_decrements(self):
-        ...
+    def retorna_saida(self, nf):
+        return self.saidas.find(lambda saida: saida.nf == nf)
 
     def get_decrement_by_id(seld, id):
         ...

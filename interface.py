@@ -91,27 +91,39 @@ def produto_pelo_id():
 
 # * ####### ENTRADAS #########
 def criar_entrada():
+    """
+    Cria uma entrada no JSON
+
+    - Pega a nota fiscal da entrada
+    - Cria uma lista ```produtos```
+    - Loop para adicionar os produtos na lista
+        -  Vai pegar o nome do produto e verificar se já existe na lista
+        -  Pegar quantidade desse produto
+        -  Adicionalos na lista de produtos
+        -  Verifico se desejo adicionar outro
+    - Cadastro minha entrada, com a nf e uma lista de produtos
+    """
     nf = input("Qual a nota fiscal da entrada: ")
     produtos = StaticList(0)
-
     while True:
         nome = input("Nome do produto: ")
-        produto = estoque.produtos.find(lambda produto: produto.name == nome)
+
+        def comparador(produto):
+            return produto.name == nome
+
+        produto = estoque.produtos.find(comparador)
 
         if produto == None:
             print("Produto não existe")
             break
 
         quantidade = int(input(f"Quantidade de {nome}: "))
-        produtos = produtos.add([(produto, quantidade)])
+        produtos = produtos.add((produto, quantidade))
 
         if input("Deseja adicionar outro produto?: (s/n) ").lower() == "n":
             break
 
-    lista_produto = ListaProduto(
-        [(produto, quantidade) for produto, quantidade in produtos]
-    )
-    estoque.cadastrar_entrada(Entrada(nf, lista_produto))
+    estoque.cadastrar_entrada(Entrada(nf, ListaProduto(produtos)))
     print("Entrada cadastrada com sucesso!")
 
 
@@ -167,6 +179,7 @@ def entrada_pela_nf():
 def criar_saida():
     nf = input("Qual a nota fiscal da saida: ")
     produtos = StaticList(0)
+    quantidade = 0
 
     while True:
         nome = input("Nome do produto a dar baixa: ")
@@ -174,25 +187,72 @@ def criar_saida():
 
         if produto == None:
             print("Produto não existe")
-            break
+            return
 
         quantidade = int(input(f"Quantidade de {nome} para dar baixa: "))
 
-        # TODO Lógica de verificar a quantidade ao dar baixa
-        produtos = produtos.add([(produto, quantidade)])
+        """ def comparador_de_quantidade(era):
+            ...
+
+        estoque.entradas.find() """
+
+        # # TODO Lógica de verificar a quantidade ao dar baixa
+        # produtos = produtos.add([(produto, quantidade)])
 
         if input("Deseja adicionar outro produto?: (s/n) ").lower() == "n":
             break
 
-    lista_produto = ListaProduto(
-        [(produto, quantidade) for produto, quantidade in produtos]
-    )
-    estoque.cadastrar_saida(Saida(nf, lista_produto))
+    produtos = produtos.add((produto, quantidade))
+    estoque.cadastrar_saida(Saida(nf, ListaProduto(produtos)))
     print("Saida cadastrada com sucesso!")
 
 
 def listar_saida():
-    ...
+    for i in estoque.saidas:
+        table = Table(
+            title=f"Saída {i.nf}",
+            show_header=True,
+            header_style="bold red",
+        )
+
+        table.add_column("Produto", justify="center", style="bold green")
+        table.add_column("Quantidade", justify="center", style="bold green")
+
+        for produto, quantidade in i.lista_produto:
+            table.add_row(produto.name, str(quantidade))
+
+        print(table)
+
+
+def saida_nf():
+    """
+    retorna uma saída pela sua nota fiscal.
+    """
+    nf = input("Digite a nota fiscal da saida que deseja buscar: ")
+    saida = estoque.retorna_saida(nf)
+
+    print()
+    if saida == None:
+        print("saida não existe")
+    else:
+        print("=" * 70)
+        print(f"Nota fiscal: {saida.nf}")
+        print(f"Data de criação: {saida.createdAt.strftime('%d/%m/%Y')}")
+        print("=" * 70)
+        table = Table(
+            title=f"Saida {saida.nf}",
+            show_header=True,
+            header_style="bold red",
+        )
+
+        table.add_column("Produto", justify="center", style="bold green")
+        table.add_column("Quantidade", justify="center", style="bold green")
+
+        for produto, quantidade in saida.lista_produto:
+            table.add_row(produto.name, str(quantidade))
+
+        print(table)
+        print("=" * 70)
 
 
 # * ########## FERRAMENTAS #############
@@ -237,8 +297,8 @@ menu.add(
         #######################################
         "Saidas": {
             "Registrar Saída": criar_saida,
-            "Listar Saída": ...,
-            "Buscar Saída": ...,
+            "Listar Saída": listar_saida,
+            "Buscar Saída": saida_nf,
         },
         #######################################
         "Ferramentas": {
