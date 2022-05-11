@@ -1,5 +1,8 @@
+from models.Saida import Saida
 from util import JSONDatabase, StaticList
-from models import Produto, Entrada, ProductList
+from models.Produto import Produto
+from models.Entrada import Entrada
+from models.ListaProduto import ListaProduto
 
 
 db = JSONDatabase("produtos.json")
@@ -14,8 +17,13 @@ class Estoque:
         read = db.read()
         produtos = read.get("produtos", None)
         entradas = read.get("entradas", None)
+        saidas = read.get("saidas", None)
 
-        # TODO ainda falta fazer a saída
+        """
+        Caso não tenha essas classes
+        """
+        self.produtos = StaticList(0)
+        self.entradas = StaticList(0)
         self.saidas = StaticList(0)
 
         """
@@ -24,18 +32,12 @@ class Estoque:
         """
         # Se existir produtos no Bd
         if produtos:
-            # Crio uma lista para armazenar os produtos
-            self.produtos = StaticList(len(produtos))
-            # Para cada produto na lista
             for i in produtos:
-                # Transforma o produto json paraa a classe Produto
+                # Transforma o produto json para a classe Produto
                 self.produtos = self.produtos.add(Produto.from_dict(i["id"], i["name"]))
 
         # Se existir Entradas no Bd
         if entradas:
-            # Crio uma lista para armazenar as entradas
-            self.entradas = StaticList(len(entradas))
-            # Para cada entrada na lista
             for i in entradas:
                 produtos = [
                     (
@@ -45,7 +47,20 @@ class Estoque:
                     for i in i["produtos"]
                 ]
                 self.entradas = self.entradas.add(
-                    Entrada.from_dict(i["nf"], ProductList(produtos))
+                    Entrada.from_dict(i["nf"], ListaProduto(produtos))
+                )
+
+        if saidas:
+            for i in saidas:
+                produtos = [
+                    (
+                        Produto.from_dict(i["produto"]["id"], i["produto"]["name"]),
+                        i["quantidade"],
+                    )
+                    for i in i["produtos"]
+                ]
+                self.saidas = self.saidas.add(
+                    Saida.from_dict(i["nf"], ListaProduto(produtos))
                 )
 
     def to_dict(self):
@@ -104,38 +119,28 @@ class Estoque:
         # adiciona o produto ao Json
         db.write(self.to_dict())
 
-    # TODO RETORNAR ENTRADA PELO UF
     def retorna_entrada(self, nf):
-        if int(nf):
+        return self.entradas.find(lambda entrada: entrada.nf == nf)
 
-            def find(nf):
-                return produto.id == nome
-
-        else:
-
-            def find(produto):
-                return produto.name == nome
-
-        return self.produtos.find(find)
-
-    #################### SAIDAS ####################
-    # TODO DECREMENTAR QUANTIDADE DO ITEM
-    def decrement(self, id):
+    # * #################### SAIDAS ####################
+    def cadastrar_saida(self, saida: Saida):
+        """
+        Vai criar uma nova saida, e adicionar a lista
+        """
+        self.saida = self.saidas.add(saida)
+        # adiciona o produto ao Json
+        db.write(self.to_dict())
         ...
 
-    # TODO RETORNAR VENDAS
     def get_all_decrements(self):
         ...
 
-    # TODO RETORNAR VENDAS PELO ID
     def get_decrement_by_id(seld, id):
         ...
 
     #################### FERRAMENTAS ####################
-    # TODO RETORNAR QUANTIDADE DE UM PRODUTO
     def product_total(self, name):
         ...
 
-    # TODO RETORNAR REGISTRO DE VENDAS COM TOTAL DE SAIDAS E ENTRADAS
     def registry():
         ...

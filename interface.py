@@ -1,9 +1,10 @@
+from models.Saida import Saida
 from util import MenuManager, StaticList
-from main import Estoque, Produto
-from models import ProductList, Entrada
 
-# from InquirerPy import inquirer
-# from InquirerPy.validator import NumberValidator
+from main import Estoque, Produto
+from models.ListaProduto import ListaProduto
+from models.Entrada import Entrada
+from models.Produto import Produto
 
 
 from rich.console import Console
@@ -22,7 +23,7 @@ def criar_produtos():
 
     """
     flag = True
-    while flag:
+    while True:
         nome = input("Nome do produto: ")
         continuar = input("Deseja adicionar outro: (s/n) ")
         produto = Produto(nome)
@@ -88,8 +89,6 @@ def produto_pelo_id():
         print(f"Nome do produto: {produto.name}")
 
 
-###########################
-
 # * ####### ENTRADAS #########
 def criar_entrada():
     nf = input("Qual a nota fiscal da entrada: ")
@@ -109,30 +108,97 @@ def criar_entrada():
         if input("Deseja adicionar outro produto?: (s/n) ").lower() == "n":
             break
 
-    product_list = ProductList(
+    lista_produto = ListaProduto(
         [(produto, quantidade) for produto, quantidade in produtos]
     )
-    estoque.cadastrar_entrada(Entrada(nf, product_list))
+    estoque.cadastrar_entrada(Entrada(nf, lista_produto))
     print("Entrada cadastrada com sucesso!")
 
 
 def listar_entrada():
     for i in estoque.entradas:
         table = Table(
-            title=f"Entrada {i.nf}", show_header=True, header_style="bold red"
+            title=f"Entrada {i.nf}",
+            show_header=True,
+            header_style="bold red",
         )
 
         table.add_column("Produto", justify="center", style="bold green")
         table.add_column("Quantidade", justify="center", style="bold green")
 
-        for produto, quantidade in i.product_list:
+        for produto, quantidade in i.lista_produto:
             table.add_row(produto.name, str(quantidade))
 
         print(table)
 
 
 def entrada_pela_nf():
+    """
+    retorna um entrada pela sua nota fiscal.
+    """
+    nf = input("Digite a nota fiscal da entrada que deseja buscar: ")
+    entrada = estoque.retorna_entrada(nf)
+
+    print()
+    if entrada == None:
+        print("Entrada não existe")
+    else:
+        print("=" * 70)
+        print(f"Nota fiscal: {entrada.nf}")
+        print(f"Data de criação: {entrada.createdAt.strftime('%d/%m/%Y')}")
+        print("=" * 70)
+        table = Table(
+            title=f"Entrada {entrada.nf}",
+            show_header=True,
+            header_style="bold red",
+        )
+
+        table.add_column("Produto", justify="center", style="bold green")
+        table.add_column("Quantidade", justify="center", style="bold green")
+
+        for produto, quantidade in entrada.lista_produto:
+            table.add_row(produto.name, str(quantidade))
+
+        print(table)
+        print("=" * 70)
+
+
+# * ####### SAIDA #########
+def criar_saida():
+    nf = input("Qual a nota fiscal da saida: ")
+    produtos = StaticList(0)
+
+    while True:
+        nome = input("Nome do produto a dar baixa: ")
+        produto = estoque.produtos.find(lambda produto: produto.name == nome)
+
+        if produto == None:
+            print("Produto não existe")
+            break
+
+        quantidade = int(input(f"Quantidade de {nome} para dar baixa: "))
+
+        # TODO Lógica de verificar a quantidade ao dar baixa
+        produtos = produtos.add([(produto, quantidade)])
+
+        if input("Deseja adicionar outro produto?: (s/n) ").lower() == "n":
+            break
+
+    lista_produto = ListaProduto(
+        [(produto, quantidade) for produto, quantidade in produtos]
+    )
+    estoque.cadastrar_saida(Saida(nf, lista_produto))
+    print("Saida cadastrada com sucesso!")
+
+
+def listar_saida():
     ...
+
+
+# * ########## FERRAMENTAS #############
+def total_produto():
+    ...
+    # produto = input("Digite o nome do produto que deseja saber o total")
 
 
 ############ MENU ############
@@ -155,7 +221,7 @@ menu.add(
         "Entradas": {
             "Registrar nova Entrada": criar_entrada,
             "Listar entradas": listar_entrada,
-            "Buscar entradas": ...,
+            "Buscar entradas": entrada_pela_nf,
         },
         #######################################
         "Produtos": {
@@ -169,18 +235,28 @@ menu.add(
             "Buscar produto pelo ID": produto_pelo_id,
         },
         #######################################
-        "Saída": {
-            "Registrar Saída": ...,
+        "Saidas": {
+            "Registrar Saída": criar_saida,
             "Listar Saída": ...,
             "Buscar Saída": ...,
         },
         #######################################
         "Ferramentas": {
-            "Total de um produto": ...,
-            "Relatorio": ...,
+            "Total de um produto": total_produto,
+            "Relatório": ...,
         },
     }
 )
 #############################
 
 menu.show()
+
+
+"""
+Eu tenho uma loja. Essa loja recebe várias entradas de um mesmo produto
+
+5 entradas e nas 5 veio 10 mandiocas = 50 mandiocas
+
+saidas = valor que eu vendi - o total do produto que eu tenho no estoque
+
+"""

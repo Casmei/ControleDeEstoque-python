@@ -30,7 +30,7 @@
         },
         {
             "id": "59ff2269-a058-4d49-8da3-74b04f97acfb",
-            "name": "linguiça"
+            "name": "linguiï¿½a"
         },
         {
             "id": "d2702123-62b1-4f65-800b-62e12ec47e5b",
@@ -42,91 +42,63 @@
         },
         {
             "id": "a3730d1a-94e6-4788-a8eb-1a619469ce18",
-            "name": "feijão"
+            "name": "feijï¿½o"
         }
     ],
     "entradas": [
         {
-            "id": "06670252-0458-4cfb-ab53-99ce2b3f2c90",
-            "nf": "24123",
-            "createdAt": "2022-05-06T13:05:35.038108",
+            "id": "d20c0226-1333-4ec5-a09d-e0048516a79f",
+            "nf": "1111",
+            "createdAt": "2022-05-09T01:21:57.887533",
             "produtos": [
                 {
                     "produto": {
-                        "id": "02ff5593-b17a-46fe-88ff-3d4554450c03",
-                        "name": "batata"
-                    },
-                    "quantidade": 34
-                },
-                {
-                    "produto": {
-                        "id": "e35210ec-ca2a-4b72-8164-30db0ba4ef4c",
-                        "name": "beterraba"
-                    },
-                    "quantidade": 64
-                },
-                {
-                    "produto": {
-                        "id": "b47beaad-4b09-4e1b-bd92-8f0763255647",
-                        "name": "tanja"
-                    },
-                    "quantidade": 13
-                },
-                {
-                    "produto": {
-                        "id": "d2702123-62b1-4f65-800b-62e12ec47e5b",
-                        "name": "costela de porco"
+                        "id": "6b8f9c61-c5a6-442c-b67d-71c6b6674f8c",
+                        "name": "banana"
                     },
                     "quantidade": 10
-                }
-            ]
-        },
-        {
-            "id": "12c176ac-e442-401e-8d6f-57e1d3743384",
-            "nf": "423432",
-            "createdAt": "2022-05-06T13:05:35.038108",
-            "produtos": [
-                {
-                    "produto": {
-                        "id": "9efc1bba-54c4-415c-adca-0f838e407592",
-                        "name": "caderno"
-                    },
-                    "quantidade": 50
                 },
                 {
                     "produto": {
                         "id": "1cf6ad40-e7d8-4b84-9857-9872bf73a81e",
                         "name": "morango"
                     },
-                    "quantidade": 15
+                    "quantidade": 10
                 },
                 {
                     "produto": {
-                        "id": "02ff5593-b17a-46fe-88ff-3d4554450c03",
-                        "name": "batata"
+                        "id": "068e4981-536a-4797-bab9-1ef9b98596fc",
+                        "name": "melancia"
                     },
-                    "quantidade": 70
+                    "quantidade": 20
                 }
             ]
         },
         {
-            "id": "0590586e-6ee4-4339-93e3-bf168dc74462",
-            "nf": "5566",
-            "createdAt": "2022-05-06T13:05:35.038108",
+            "id": "ee7b6257-50a2-46c9-8118-a83e684043f9",
+            "nf": "1222",
+            "createdAt": "2022-05-09T01:25:09.787271",
             "produtos": [
                 {
                     "produto": {
-                        "id": "dd8b8fde-dbd3-4198-b918-8ec76e3e7162",
-                        "name": "arroz"
+                        "id": "e35210ec-ca2a-4b72-8164-30db0ba4ef4c",
+                        "name": "beterraba"
                     },
-                    "quantidade": 60
+                    "quantidade": 20
+                },
+                {
+                    "produto": {
+                        "id": "b47beaad-4b09-4e1b-bd92-8f0763255647",
+                        "name": "tanja"
+                    },
+                    "quantidade": 40
                 },
                 {
                     "produto": {
                         "id": "6b8f9c61-c5a6-442c-b67d-71c6b6674f8c",
                         "name": "banana"
                     },
-                    "quantidade": 12
+                    "quantidade": 50
                 }
             ]
         }
