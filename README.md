@@ -17,6 +17,7 @@ O projeto desenvolvido trata-se de um sistema para o controle de um estoque, no 
 - [ ] Total 
 - [ ] Melhorar o sistema de validação
 - [ ] Gerar relátorios
+- [ ] Somar quantidade de produtos repetidos na entrada
 
 ---
 
