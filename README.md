@@ -12,9 +12,10 @@ O projeto desenvolvido trata-se de um sistema para o controle de um estoque, no 
 	🚧  Projeto em desenvolvimento...  🚧
 </h2>
 
-### ✅ Próximos recursos
+### ✅ Next Features
 
 - [ ] Total 
+- [ ] Melhorar sistema de data
 - [ ] Melhorar o sistema de validação
 - [ ] Gerar relátorios
 
