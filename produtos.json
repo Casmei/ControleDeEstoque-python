@@ -1,90 +1,133 @@
 {
     "produtos": [
         {
-            "id": "4dd2eacf-9319-4a1c-8602-3f67721ec792",
-            "name": "banana"
-        },
-        {
-            "id": "7e9cd008-f713-47b1-b40b-0d30a8710189",
-            "name": "maçã"
-        },
-        {
-            "id": "ed129dcf-66f0-40bd-b546-eafb986223cd",
+            "id": "20833017-d72f-4bb9-9471-7741c8e29944",
             "name": "batata"
+        },
+        {
+            "id": "bd8ab5a5-11e0-4fa7-8b70-1b4570b66c71",
+            "name": "melancia"
+        },
+        {
+            "id": "b472eac5-094c-44e1-92f2-a9870062ba09",
+            "name": "morango"
+        },
+        {
+            "id": "6baf9f32-eba0-4b46-ae0d-1f34c6a2dee8",
+            "name": "manga"
+        },
+        {
+            "id": "3aacfe58-7f53-4e15-b667-c12a1f16db1d",
+            "name": "laranja"
+        },
+        {
+            "id": "7b75b421-84bd-415b-a789-9deb05c81ee5",
+            "name": "beterraba"
+        },
+        {
+            "id": "0550928c-6a8b-40b2-949d-5813e43da029",
+            "name": "queijo"
         }
     ],
     "entradas": [
         {
-            "id": "269d4072-015d-4a79-9e9d-e57b046a2b7e",
-            "nf": "1111",
-            "createdAt": "2022-05-11T10:30:40.745977",
+            "id": "b1014449-c913-4588-bf05-7d82abe67d0d",
+            "nf": "1122",
+            "createdAt": "2022-05-14T16:08:22.677567",
             "produtos": [
                 {
                     "produto": {
-                        "id": "6b8f9c61-c5a6-442c-b67d-71c6b6674f8c",
-                        "name": "banana"
+                        "id": "20833017-d72f-4bb9-9471-7741c8e29944",
+                        "name": "batata"
                     },
                     "quantidade": 10
                 },
                 {
                     "produto": {
-                        "id": "1cf6ad40-e7d8-4b84-9857-9872bf73a81e",
-                        "name": "morango"
-                    },
-                    "quantidade": 10
-                },
-                {
-                    "produto": {
-                        "id": "068e4981-536a-4797-bab9-1ef9b98596fc",
+                        "id": "bd8ab5a5-11e0-4fa7-8b70-1b4570b66c71",
                         "name": "melancia"
                     },
-                    "quantidade": 20
-                }
-            ]
-        },
-        {
-            "id": "cbf7d578-f0b7-4f2b-804f-cb19615c3e20",
-            "nf": "1222",
-            "createdAt": "2022-05-11T10:30:40.745977",
-            "produtos": [
+                    "quantidade": 15
+                },
                 {
                     "produto": {
-                        "id": "e35210ec-ca2a-4b72-8164-30db0ba4ef4c",
-                        "name": "beterraba"
+                        "id": "3aacfe58-7f53-4e15-b667-c12a1f16db1d",
+                        "name": "laranja"
                     },
                     "quantidade": 20
                 },
                 {
                     "produto": {
-                        "id": "b47beaad-4b09-4e1b-bd92-8f0763255647",
-                        "name": "tanja"
+                        "id": "bd8ab5a5-11e0-4fa7-8b70-1b4570b66c71",
+                        "name": "melancia"
                     },
                     "quantidade": 40
                 },
                 {
                     "produto": {
-                        "id": "6b8f9c61-c5a6-442c-b67d-71c6b6674f8c",
-                        "name": "banana"
-                    },
-                    "quantidade": 50
-                }
-            ]
-        }
-    ],
-    "saidas": [
-        {
-            "id": "2f94dfd6-006d-444e-990a-06971ce2e8b3",
-            "nf": "1133",
-            "createdAt": "2022-05-11T10:30:53.165066",
-            "produtos": [
-                {
-                    "produto": {
-                        "id": "4dd2eacf-9319-4a1c-8602-3f67721ec792",
-                        "name": "banana"
+                        "id": "20833017-d72f-4bb9-9471-7741c8e29944",
+                        "name": "batata"
                     },
                     "quantidade": 5
                 }
             ]
+        },
+        {
+            "id": "275b7346-6571-4617-a8af-311897b0189f",
+            "nf": "1121",
+            "createdAt": "2022-05-14T16:08:22.677567",
+            "produtos": [
+                {
+                    "produto": {
+                        "id": "bd8ab5a5-11e0-4fa7-8b70-1b4570b66c71",
+                        "name": "melancia"
+                    },
+                    "quantidade": 10
+                },
+                {
+                    "produto": {
+                        "id": "6baf9f32-eba0-4b46-ae0d-1f34c6a2dee8",
+                        "name": "manga"
+                    },
+                    "quantidade": 40
+                },
+                {
+                    "produto": {
+                        "id": "20833017-d72f-4bb9-9471-7741c8e29944",
+                        "name": "batata"
+                    },
+                    "quantidade": 10
+                },
+                {
+                    "produto": {
+                        "id": "6baf9f32-eba0-4b46-ae0d-1f34c6a2dee8",
+                        "name": "manga"
+                    },
+                    "quantidade": 20
+                }
+            ]
+        },
+        {
+            "id": "6fa65f84-2480-46a3-837b-836f11b7da08",
+            "nf": "2310",
+            "createdAt": "2022-05-14T16:14:34.161860",
+            "produtos": [
+                {
+                    "produto": {
+                        "id": "0550928c-6a8b-40b2-949d-5813e43da029",
+                        "name": "queijo"
+                    },
+                    "quantidade": 15
+                },
+                {
+                    "produto": {
+                        "id": "7b75b421-84bd-415b-a789-9deb05c81ee5",
+                        "name": "beterraba"
+                    },
+                    "quantidade": 30
+                }
+            ]
         }
-    ]
+    ],
+    "saidas": []
 }
