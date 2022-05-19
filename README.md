@@ -30,8 +30,8 @@ Antes de começar, você vai precisar ter instalado em sua máquina a seguinte f
 ### 🎲 Rodando a aplicação
 - Para iniciar a aplicação, clone este repositório para a pasta que desejar:
   - ```git clone https://github.com/Casmei/ControleDeEstoque-python.git .```
-- Em seguida baixe todos as bibliotecas que o sistema utilizara:
-  - ```pip install -r requirements.txt```
+- Em seguida rode a aplicação com o comando:
+  - ```python interface.py```
 ---
 
 
