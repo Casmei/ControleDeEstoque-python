@@ -27,13 +27,21 @@
         {
             "id": "0550928c-6a8b-40b2-949d-5813e43da029",
             "name": "queijo"
+        },
+        {
+            "id": "4f1de39c-62da-4ebd-b44e-32166028b625",
+            "name": "morango"
+        },
+        {
+            "id": "5fa31105-ce41-4760-aa5d-b6cbfde45cc0",
+            "name": "batata"
         }
     ],
     "entradas": [
         {
-            "id": "b1014449-c913-4588-bf05-7d82abe67d0d",
+            "id": "bbe565f8-3588-432d-8458-16438fc50f4b",
             "nf": "1122",
-            "createdAt": "2022-05-14T16:08:22.677567",
+            "createdAt": "2022-06-01T10:01:45.479832",
             "produtos": [
                 {
                     "produto": {
@@ -73,9 +81,9 @@
             ]
         },
         {
-            "id": "275b7346-6571-4617-a8af-311897b0189f",
+            "id": "16639537-a636-45f6-a05e-b6ce278241ab",
             "nf": "1121",
-            "createdAt": "2022-05-14T16:08:22.677567",
+            "createdAt": "2022-06-01T10:01:45.479867",
             "produtos": [
                 {
                     "produto": {
@@ -108,9 +116,9 @@
             ]
         },
         {
-            "id": "6fa65f84-2480-46a3-837b-836f11b7da08",
+            "id": "5b8fe2df-a4bf-42b3-9f61-5edc076eefc5",
             "nf": "2310",
-            "createdAt": "2022-05-14T16:14:34.161860",
+            "createdAt": "2022-06-01T10:01:45.479893",
             "produtos": [
                 {
                     "produto": {
@@ -125,6 +133,55 @@
                         "name": "beterraba"
                     },
                     "quantidade": 30
+                }
+            ]
+        },
+        {
+            "id": "cfe47572-815a-4bce-a5f1-fb209a90f562",
+            "nf": "666",
+            "createdAt": "2022-06-01T10:01:45.479918",
+            "produtos": [
+                {
+                    "produto": {
+                        "id": "b472eac5-094c-44e1-92f2-a9870062ba09",
+                        "name": "morango"
+                    },
+                    "quantidade": 20
+                },
+                {
+                    "produto": {
+                        "id": "20833017-d72f-4bb9-9471-7741c8e29944",
+                        "name": "batata"
+                    },
+                    "quantidade": 30
+                }
+            ]
+        },
+        {
+            "id": "d9212a58-6821-4ab9-a05b-88c038c6a657",
+            "nf": "666",
+            "createdAt": "2022-06-01T10:15:02.420664",
+            "produtos": [
+                {
+                    "produto": {
+                        "id": "20833017-d72f-4bb9-9471-7741c8e29944",
+                        "name": "batata"
+                    },
+                    "quantidade": 50
+                }
+            ]
+        },
+        {
+            "id": "171c838b-5782-4470-8dae-8b499cca6655",
+            "nf": "666",
+            "createdAt": "2022-06-01T10:15:47.869129",
+            "produtos": [
+                {
+                    "produto": {
+                        "id": "20833017-d72f-4bb9-9471-7741c8e29944",
+                        "name": "batata"
+                    },
+                    "quantidade": 50
                 }
             ]
         }

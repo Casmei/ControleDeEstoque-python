@@ -1,6 +1,5 @@
 from pathlib import Path
 from json import dumps, loads
-from typing import Any
 
 # * ################## LÓGICA DE LEITURA E ESCRITA ##################
 
@@ -17,7 +16,7 @@ class JSONDatabase:
         self.path.unlink()
         self.path.write_text("{}")
 
-    def read(self) -> dict[str, Any]:
+    def read(self):
         return loads(self.path.read_text())
 
     def write(self, data):

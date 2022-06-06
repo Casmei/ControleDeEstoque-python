@@ -1,4 +1,4 @@
-from models.Saida import Saida
+#from models.Saida import Saida
 from util import MenuManager, StaticList
 
 from main import Estoque, Produto

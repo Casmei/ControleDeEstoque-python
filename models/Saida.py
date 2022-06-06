@@ -16,7 +16,7 @@ class Saida:
         self.lista_produto = lista_produto
 
     @classmethod
-    def from_dict(cls, nf, lista_produto: list[ListaProduto]):
+    def from_dict(cls, nf, lista_produto):
         return cls(nf, lista_produto)
 
     def to_dict(self):
