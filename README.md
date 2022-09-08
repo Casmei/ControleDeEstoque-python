@@ -8,19 +8,6 @@ O projeto desenvolvido trata-se de um sistema para o controle de um estoque, no 
 
 ---
 
-<h2 align="center"> 
-	🚧  Projeto em desenvolvimento...  🚧
-</h2>
-
-### ✅ Next Features
-
-- [ ] Total 
-- [ ] Melhorar sistema de data
-- [ ] Melhorar o sistema de validação
-- [ ] Gerar relátorios
-
----
-
 <h1 align="center">Instalação
 </h1>
 
