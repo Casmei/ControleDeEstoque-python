@@ -37,5 +37,4 @@ Por fim, inicie a aplicação:
 
 ---
 
-Feito com ❤️ e ☕ por Tiago de Castro 👋🏽 [Entre em contato!](https://www.linkedin.com/in/tiago-de-castro-lima-3814911b9/) <br>
-Este projeto esta sobe a licença [MIT](./LICENSE).
+Feito com ❤️ e ☕ por Tiago de Castro 👋🏽 [Entre em contato!](https://earnest-begonia-690754.netlify.app/)
